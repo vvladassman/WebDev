@@ -1,0 +1,73 @@
+h1{
+    font-family: "amiri", serif;
+}
+
+h2,h3{
+    font-family: "Alegreya Sans SC", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+p{
+    font-family: "Advent Pro", sans-serif;
+}
+body{
+    color: white;
+    font-family: "Advent Pro", sans-serif;
+    background: rgb(0,0,0);
+    background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(43,43,43,1) 100%);
+}
+button{
+    font-family: "amiri", serif;
+    border: none;
+    border-radius: 38px;
+    background-color: #D5BFB6;
+    width: 282px;
+}
+
+#Mail{
+    background-color: #FF3131;
+}
+
+#Contact, footer{
+    font-family: "amiri", serif;
+}
+
+.Preview{
+    width: 200px;
+}
+
+.Footer{
+    background-color: #120B01;
+    width: 100%;
+    margin: 0;
+}
+
+#Presentation{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+    
+}
+
+.PtItem{
+    margin: 0px;
+}
+
+#Introduction{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 10px;
+}
+
+.IntItem{
+    margin: 10px;
+}
+.IntItem img{
+    margin-left: 200px;
+    border-radius: 50px;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+}
