@@ -1,20 +1,31 @@
 h1{
     font-family: "amiri", serif;
+    font-size: 75px;
 }
 
-h2,h3{
+h2{
     font-family: "Alegreya Sans SC", sans-serif;
   font-weight: 300;
   font-style: normal;
+  font-size: 30px;
+}
+h3{
+    font-family: "Alegreya Sans SC", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 25px;
 }
 p{
     font-family: "Advent Pro", sans-serif;
+    font-size: 20px;
 }
 body{
     color: white;
     font-family: "Advent Pro", sans-serif;
     background: rgb(0,0,0);
     background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(43,43,43,1) 100%);
+    font-size: 20px;
+    margin: 0;
 }
 button{
     font-family: "amiri", serif;
@@ -30,6 +41,8 @@ button{
 
 #Contact, footer{
     font-family: "amiri", serif;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
 }
 
 .Preview{
@@ -47,8 +60,7 @@ button{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    
-    height: 500px;
+    height: 95vh;
     
 }
 
@@ -57,20 +69,93 @@ button{
 }
 
 #Introduction{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-    font-size: 1.5rem;
-
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 10px;
+    
 }
 
-
+.IntItem{
+    margin: 10px;
+}
 .IntItem img{
-    margin-left: 100px;
+    margin-left: 200px;
     border-radius: 50px;
     width: 200px;
     height: 200px;
     object-fit: cover;
+    
+}
+.IntImage{
+    grid-row: span 2;
+}
+.IntTitle{
+    display: flex;
+    align-items: end;
+    margin-bottom: 0px;
+}
+.IntTitle h3{
+    margin-bottom: 0px;
+}
+.IntText{
+    display: flex;
+    align-items: baseline;
+    margin-top: 0px;
+}
+
+.IntText p{
+    margin-top: 0px;
+}
+
+#Skills{
+    margin-left: 200px;
+    margin-top: 200px;
+    
+
+}
+#Skills > div {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#Projects{
+    
+    margin-top: 200px;
+}
+#Projects > h3{
+    margin-left: 200px;
+}
+
+#Projects > div{
+    display: flex;
+    justify-content: space-around;
+    padding-top: 20px;
+    padding-bottom: 0px;
+}
+
+#About{
+    margin-top: 200px;
+    margin-bottom: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.AboutText{
+    width: 600px;
+}
+
+.ContactContainer{
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+#Contact{
+    padding-left: 30px;
+}
+.Footer footer{
+    padding-left: 30px;
 }
