@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlogPost</title>
+</head>
+<body>
+    <form action="/addPost" method="POST">
+    <div class="container">
+        <div class="container"><div><h1>Blogpost</h1></div> <div> <input type="text" name="name" placeholder="Name..."></div></div>
+        <div><img src="images/BlogpostLogo.png"></div>
+    </div>
+    <div>
+        <input type="text" name="content" placeholder="A happy place to post, free to share!">
+        <div>
+        <input type="text" name="title" placeholder="Add post title here...">
+        <input type="number" name="password" placeholder="Password" minlength="4" maxlength="4">
+        <input type="submit" value="Post">
+        </div>
+    </div>
+    </form>
+    
+    <% if (error) { %>
+        <div id="errorMessage" style="color: red;"><%= error %></div>
+    <% } %>
+    
+
+    
+    <% posts.forEach(post => { %>
+        <div style="overflow-y: scroll; height: 100px;">
+            <div><strong><%= post.title %></strong> </div><div><%= post.name %></div> 
+        </div>
+        
+    <% }); %>
+
+    
+         
+    
+</body>
+</html>
