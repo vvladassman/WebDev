@@ -1,0 +1,283 @@
+body{
+    background: rgb(255,228,122);
+    background: linear-gradient(90deg, rgba(255,228,122,1) 0%, rgba(254,254,254,1) 100%);
+    font-size: 2rem;
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    margin-left: 0px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+}
+.error{
+    
+    color: rgb(243, 0, 0);
+}
+
+.MainPage{
+    height: 98vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+.MainTitle{
+    
+    margin-top: 76px;
+    margin-left: 76px;
+    margin-bottom: 0px;
+    height: 89.1px;
+}
+.title{
+    font-size: 3.5rem;
+    font-family: "Bree Serif", serif;
+    font-weight: 400;
+    font-style: normal;
+    height: 89.1px;
+}
+
+  
+
+#SubTitle{
+    font-size: 2rem;
+    opacity: 55%;
+    margin-left: 76px;
+    margin-top: 7.3px;
+    font-family: "Bree Serif", serif;
+    font-weight: 400;
+    font-style: normal;
+    height: 49.7px;
+}
+
+
+
+.Styling1{
+    border-radius: 36px;
+    border: repeat(4,3px);
+    font-size: 24px;
+    text-align: center;
+    
+}
+
+.Styling1::placeholder{
+    color: black;
+    font-size: 2rem;
+}
+input{
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+
+.inputForm{
+   
+    display: grid;
+    grid-template-columns: auto 294px 294px;
+    grid-template-rows: 1fr 1fr 1fr;
+    row-gap: 5px;
+    column-gap: 10px;
+    margin-left: 76.8px;
+    margin-right: 76.8px;
+    margin-bottom: 76.8px;
+    height: 60vh;
+}
+
+.Text1{
+    grid-column: 1;
+    grid-row: 1;
+    
+    display: flex;
+   
+    justify-content: center;
+    align-items: end;
+    
+}
+.text{
+    margin-bottom: 0px;
+}
+.Text2{
+    grid-column: 2/4;
+    grid-row: 1;
+    
+    display: flex;
+   
+    align-items: end;
+    justify-content: center;
+}
+
+.Input1{
+    grid-column: 1;
+    grid-row: 2/4;
+}
+.Input1 > textarea {
+    
+    font-size: 3rem;
+    border-radius: 5px;
+    
+    border: 4px dashed black;
+    background-color: transparent;
+    resize: none;
+}
+
+.FitInSize{
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    
+}
+
+.Input2{
+    grid-column: 4/2;
+    grid-row: 2;
+}
+.Input2 > input{
+    background-color: #CDC8BB;
+    
+}
+
+
+.Input3{
+    grid-column: 2;
+    grid-row: 3;
+}
+.Input3 > input{
+    background-color: transparent;
+}
+.Input4{
+    grid-column: 3;
+    grid-row: 3;
+}
+.Input4 > input{
+    background-color: #C1FF72;
+}
+
+.PostPage{
+    background-color: #CDC8BB;
+    height: 98vh;
+    width: 100%;
+    margin: 0;
+}
+
+#PostsTitle {
+    position: relative;
+    margin-top: 0px;
+    margin-left: 76px;
+    top: 76px;
+}
+#PostsContainer {
+    overflow-y: scroll;
+    margin-left: 76px;
+    margin-top: 76px;
+    margin-right: 76px;
+    height: 525px;
+    
+    background: transparent;
+   
+    border: 4px solid black;
+   
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888; 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }
+
+@media (max-width: 1080px) {
+    #MainTitle{
+        font-size: 3.5rem;
+        margin-top: 76px;
+        margin-left: 76px;
+        margin-bottom: 0px;
+       
+        height: 89.1px;
+    }
+    
+      
+    
+    #SubTitle{
+        font-size: 2rem;
+        opacity: 55%;
+        margin-left: 76px;
+        margin-top: 7.3px;
+        
+        height: 49.7px;
+    }
+    .inputForm{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 70.7px 400px minmax(100px, 200px) minmax(100px,200px);
+        row-gap: 5px;
+        column-gap: 0px;
+        margin-left: 76.8px;
+        margin-right: 76.8px;
+        height: 1100px;
+    }
+    .text{
+        text-wrap: balance;
+        font-size: 2rem;
+        text-align: center;
+    }
+    .Text1{
+        grid-column: 1/3;
+        grid-row: 1;
+        
+        
+    }
+    .Input1{
+        grid-column: 1/3;
+        grid-row: 2;
+    }
+    .Input1 > textarea {
+        
+        font-size: 2rem;
+        border-radius: 5px;
+        border-style: dashed;
+        background-color: transparent;
+        resize: none;
+    }
+    
+    .FitInSize{
+        box-sizing: border-box;
+        width: 100%;
+        height: 100%;
+        
+    }
+    
+    .Input2{
+        grid-column: 1/3;
+        grid-row: 3;
+    }
+    
+    
+    
+    .Input3{
+        grid-column: 1;
+        grid-row: 4;
+    }
+    .Input3 > input{
+        background-color: transparent;
+    }
+    .Input4{
+        grid-column: 2;
+        grid-row: 4;
+    }
+    
+  }

@@ -1,41 +1,47 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BlogPost</title>
-</head>
+<%- include("partials/head.ejs") %>
 <body>
-    <form action="/addPost" method="POST">
-    <div class="container">
-        <div class="container"><div><h1>Blogpost</h1></div> <div> <input type="text" name="name" placeholder="Name..."></div></div>
-        <div><img src="images/BlogpostLogo.png"></div>
-    </div>
-    <div>
-        <input type="text" name="content" placeholder="A happy place to post, free to share!">
+    <form method="post">
+    <div class="MainPage">
         <div>
-        <input type="text" name="title" placeholder="Add post title here...">
-        <input type="number" name="password" placeholder="Password" minlength="4" maxlength="4">
-        <input type="submit" value="Post">
+            <h1 class="title MainTitle">Texty.</h1>
+            <h2  id="SubTitle">Your personal blog</h2>
+    
         </div>
-    </div>
+        <div class="inputForm">
+            <div class="Text1">
+            
+                <h3 class="text">Write something here...</h3>
+           
+            </div>
+            <div class="Text2">
+            
+                <h3 class="text error"><%= error %></h3>
+           
+            </div>
+          
+            <div class="Input1">
+            <textarea name="content" class="FitInSize" ></textarea>
+            </div>
+            <div class="Input2" >
+            <input name="password" type="text" class="FitInSize Styling1" placeholder="Write your signature here... (Password)">
+            </div>
+            <div class="Input3" >
+            <input name="title" type="text" class="FitInSize Styling1" placeholder="Post title">
+            </div>
+            <div class="Input4" >
+            <input type="submit" class="FitInSize Styling1" value="Post/Edit" formaction="/PostEdit">
+            </div>
+            
+        </div>
     </form>
     
-    <% if (error) { %>
-        <div id="errorMessage" style="color: red;"><%= error %></div>
-    <% } %>
     
 
     
-    <% posts.forEach(post => { %>
-        <div style="overflow-y: scroll; height: 100px;">
-            <div><strong><%= post.title %></strong> </div><div><%= post.name %></div> 
-        </div>
-        
-    <% }); %>
-
+    </div>
+    <%- include("partials/posts.ejs") %>
     
          
-    
+    <%- include("partials/footer.ejs") %>
 </body>
 </html>

@@ -1,14 +1,12 @@
-import { render } from "ejs";
+
+import bodyParser from "body-parser";
 import express from "express";
-import generateName from "sillyname";
-import { dirname } from "path";
-import { fileURLToPath } from "url";
-const __dirname = dirname(fileURLToPath(import.meta.url));
+
 
 const app = express();
 const port = 3000;
 
-var error = null;
+var error = "";
 
 let posts = [ 
     
@@ -16,28 +14,52 @@ let posts = [
 ]
 
 
-app.use(express.urlencoded({ extended: true }));
-app.use(express.static("public"));
 
-app.set('view engine', 'ejs');
-app.set('views', __dirname + '/views');
+app.use(express.static("public"));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.set("view engine", "ejs");
 
 app.get("/", (req, res) => {
-    res.render("index", { posts, error: error }); 
+    res.render("index.ejs", { posts, error }); 
 });
 
-app.post("/addPost", (req,res) =>{
-    const {name, content, title, password} = req.body;
-    if (!content || !password) {
-        error = 'Content and password are required.'
+app.get("/Read", (req, res) => {
+  const title = req.query.title;
+  
+  let foundPost = null;
+  posts.forEach(post => {
+      if (title === post.title) {
+          foundPost = post;
+      }
+  });
+
+  if (foundPost) {
+      res.render("view.ejs", { content: foundPost.content });
+  } else {
+      res.status(404).send("Post not found");
+  }
+});
+
+app.post("/PostEdit", (req,res)=>{
+  const { content, title, password } = req.body;
+    if (!title || !password) {
+        error = 'Title and Password are required';
         res.redirect("/");
         return;
     }
 
-    const postName = name || generateName();
-    const postTitle = title || `Post ${posts.length + 1}`;
+    let postFound = false;
+    posts.forEach(post => {
+        if (title === post.title && password === post.password) {
+            post.content = content;
+            postFound = true;
+        }
+    });
 
-    posts.push({ name: postName, title: postTitle });
+    if (!postFound) {
+        posts.push({ content: content, title: title, password: password });
+    }
+
     error = null;
     res.redirect("/");
 });
