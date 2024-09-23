@@ -1,0 +1,13 @@
+<div class="PostPage">
+    <h1 class="title" id="PostsTitle">Posts.</h1>
+    <div id="PostsContainer">
+        <%if(locals.posts){ %>
+        <% posts.forEach(post => { %>
+            
+            <div><a style="color: #000; text-decoration: dashed;" href="/Read?title=<%= post.title %>"><%= post.title %></a></div> 
+       
+            
+        <% }); %>
+        <% } %>
+    </div>
+</div>

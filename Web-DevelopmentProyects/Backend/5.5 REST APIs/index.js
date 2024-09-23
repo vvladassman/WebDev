@@ -12,7 +12,7 @@ const API_URL = "https://secrets-api.appbrewery.com";
 // https://secrets-api.appbrewery.com/
 
 //TODO 1: Add your own bearer token from the previous lesson.
-const yourBearerToken = "cff2ea91-f2b6-47ce-946a-a1edf455821e";
+const yourBearerToken = "45942d9e-9851-48f1-9e23-644218bee6d7";
 const config = {
   headers: { Authorization: `Bearer ${yourBearerToken}` },
 };
@@ -41,23 +41,42 @@ app.post("/post-secret", async (req, res) => {
     res.render("index.js", { content: JSON.stringify(result.data) });
   }
   catch (error){
-    { content: JSON.stringify(error.response.data) }
+    res.render("index.ejs", { content: JSON.stringify(error.response.data) });
   }
   // TODO 2: Use axios to POST the data from req.body to the secrets api servers.
 });
 
 app.post("/put-secret", async (req, res) => {
   const searchId = req.body.id;
+  try {
+    const response = await axios.put(API_URL + "/secrets/" + searchId, req.body, config);
+    res.render("index.ejs", { content: JSON.stringify(response.data) });
+  } catch (error) {
+    res.render("index.ejs", { content: JSON.stringify(error.response.data)})
+  }
+  
   // TODO 3: Use axios to PUT the data from req.body to the secrets api servers.
 });
 
 app.post("/patch-secret", async (req, res) => {
   const searchId = req.body.id;
+  try {
+    const response = await axios.patch(API_URL + "/secrets/" + searchId, req.body, config);
+    res.render("index.ejs", { content: JSON.stringify(response.data) });
+  } catch (error) {
+    res.render("index.ejs", { content: JSON.stringify(error.response.data) });
+  }
   // TODO 4: Use axios to PATCH the data from req.body to the secrets api servers.
 });
 
 app.post("/delete-secret", async (req, res) => {
   const searchId = req.body.id;
+  try {
+    const response = await axios.delete(API_URL + "/secrets/" + searchId, config);
+    res.render("index.ejs", { content: JSON.stringify(response.data) });
+  } catch (error) {
+    res.render("index.ejs", { content: JSON.stringify(error.response.data) });
+  }
   // TODO 5: Use axios to DELETE the item with searchId from the secrets api servers.
 });
 

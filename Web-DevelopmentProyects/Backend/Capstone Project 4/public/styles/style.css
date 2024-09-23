@@ -1,0 +1,39 @@
+.HeaderDiv{
+    display: flex;
+    height: 78.7px;
+    margin-bottom: 0px;
+    background-color: #F4EEE0;
+}
+
+.Header{
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 48.5px;
+}
+
+.Subtitle{
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 24px;
+    color: #F4EEE0;
+}
+
+.StartContainer{
+    display: flex;
+    justify-content: center;
+}
+
+.Start{
+    border-radius: 100%;
+    height: 340px;
+    width: 340px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.Start:active {
+    transform: scale(1.05); /* Increase size by 20% on hover */
+}

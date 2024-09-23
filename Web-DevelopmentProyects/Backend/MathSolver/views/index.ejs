@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Solver</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Math Solver</h1>
+
+        <label for="mathInput">Enter Math Exercise (Text or Image):</label>
+        <textarea id="mathInput" rows="4" placeholder="Type your math problem here"></textarea>
+
+        <label for="imageUpload">Or Upload an Image:</label>
+        <input type="file" id="imageUpload" accept="image/*">
+
+        <button onclick="solveMath()">Solve</button>
+
+        <div class="result" id="result">
+            <!-- GPT response will be displayed here -->
+        </div>
+    </div>
+
+    <script>
+        async function solveMath() {
+            const mathInput = document.getElementById('mathInput').value;
+            const imageInput = document.getElementById('imageUpload').files[0];
+            let resultElement = document.getElementById('result');
+            
+            resultElement.innerHTML = 'Processing...';
+
+            let formData = new FormData();
+            
+            if (imageInput) {
+                formData.append('image', imageInput);
+            } else {
+                formData.append('text', mathInput);
+            }
+
+            try {
+                const response = await axios.post('/solve', formData, {
+                    headers: {
+                        'Content-Type': 'multipart/form-data'
+                    }
+                });
+                resultElement.innerHTML = response.data.response;
+            } catch (error) {
+                resultElement.innerHTML = 'Error solving the problem.';
+            }
+        }
+    </script>
+</body>
+</html>
